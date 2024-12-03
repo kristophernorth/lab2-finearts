@@ -7,4 +7,5 @@ export class Art {
     this.attribution = data.attribution
     this.cached = data.cached
   }
+
 }

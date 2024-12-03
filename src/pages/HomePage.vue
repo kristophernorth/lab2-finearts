@@ -1,9 +1,11 @@
 <script setup>
+import { AppState } from '@/AppState';
 import { artService } from '@/services/ArtService';
 import { logger } from '@/utils/Logger';
 import Pop from '@/utils/Pop';
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 
+const art = computed(() => AppState.art)
 
 onMounted(() => {
   logger.log('on mounted is running')
@@ -35,8 +37,11 @@ async function discoverArt() {
   </section>
   <section class="container-fluid">
     <div class="row">
-      <div class="col-3">
-        <img src="" alt="">
+      <div v-for="art in art" :key="art.id" class="col-3">
+        <img :src="art.imgUrl" alt="" class="img-fluid">
+        <div>
+          {{art.attribution}}
+        </div>
       </div>
     </div>
   </section>

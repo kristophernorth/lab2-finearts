@@ -7,7 +7,7 @@ class ArtService {
   async discoverArt() {
     const response = await api.get('api/artworks')
     logger.log('DISCOVERED ART', response.data)
-    const art = response.data.results.map(artPOJO => new Art(artPOJO))
+    const art = response.data.artworks.map(artPOJO => new Art(artPOJO))
     AppState.art = art
   }
 }
