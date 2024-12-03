@@ -5,6 +5,6 @@ export class Art {
     this.description = data.description
     this.admirers = data.admirers
     this.attribution = data.attribution
-    
+    this.cached = data.cached
   }
 }
